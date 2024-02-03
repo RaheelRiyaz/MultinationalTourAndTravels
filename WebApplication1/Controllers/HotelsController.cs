@@ -36,7 +36,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
             await hotelsService.ViewHotelsByPackageType(packageType);
 
 
-        [HttpGet("hotels/pagewize/{pageNo:int}/{total:int}")]
+        [HttpGet("hotels-pagewize/{pageNo:int}/{total:int}")]
         public async Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotelsPageWize(int pageNo, int total) =>
             await hotelsService.ViewHotelsPageWize(pageNo, total);
     }

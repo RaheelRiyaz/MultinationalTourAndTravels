@@ -19,7 +19,8 @@ namespace MultinationalTourAndTravels.Domain.Enums
         Package = 2,
         Itinerary = 3,
         Hotel = 4,
-        Gallery = 5
+        Gallery = 5,
+        Cabs = 6
     }
 
 
@@ -40,5 +41,23 @@ namespace MultinationalTourAndTravels.Domain.Enums
         Four = 4,
         Five = 5,
         Six = 6,
+    }
+
+
+
+    public enum PackageCostingType : byte
+    {
+        _2px = 1,
+        _4px = 2,
+        _6px = 3,
+        _12px = 4,
+    }
+
+
+
+    public enum CabType : byte
+    {
+        AC = 1,
+        NON_AC = 2,
     }
 }

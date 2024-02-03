@@ -47,21 +47,41 @@ namespace MultinationalTourAndTravels.Application.Services
             return APIResponse<ChatBotResponse>.ErrorResponse();
         }
 
-        public async Task<APIResponse<ChatBotAsnwerResponse>> ChatAnswer(Guid questionId)
+        public async Task<APIResponse<IEnumerable<ChatBotAsnwerResponse>>> ChatAnswer(Guid questionId)
         {
-            var answer = await chatAnswerRepository.FirstOrDefaultAsync(_ => _.QuestionId == questionId);
+            var answers = (await chatAnswerRepository.FilterAsync(_ => _.QuestionId == questionId)).OrderBy(_=>_.CreatedOn);
 
-            if (answer is null)
-                return APIResponse<ChatBotAsnwerResponse>.ErrorResponse();
+            if (!answers.Any())
+                return APIResponse<IEnumerable<ChatBotAsnwerResponse>>.ErrorResponse();
 
-            return APIResponse<ChatBotAsnwerResponse>.SuccessResponse(result: new ChatBotAsnwerResponse(answer.Id, answer.Answer));
+            return APIResponse<IEnumerable<ChatBotAsnwerResponse>>.SuccessResponse(result: answers.Select(_=>new ChatBotAsnwerResponse(_.Id,_.Answer)));
         }
 
-        public async Task<APIResponse<IEnumerable<ChatBotResponse>>> ChatQuestions()
+        public async Task<APIResponse<IEnumerable<ChatBotResponse>>> AllChatQuestions()
         {
-            var qustions = await chatQuestionRepository.FilterAsync(_ => _.Show);
+            var qustions = (await chatQuestionRepository.GetAllAsync()).OrderBy(_=>_.CreatedOn);
+
 
             return APIResponse<IEnumerable<ChatBotResponse>>.SuccessResponse(result: qustions.Select(_ => new ChatBotResponse(_.Id, _.Question)));
+        }
+
+        public async Task<APIResponse<IEnumerable<ChatBotResponse>>> ActiveChatQuestions()
+        {
+            var qustions = (await chatQuestionRepository.FilterAsync(_ => _.Show)).OrderBy(_=>_.CreatedOn);
+
+            return APIResponse<IEnumerable<ChatBotResponse>>.SuccessResponse(result: qustions.Select(_ => new ChatBotResponse(_.Id, _.Question)));
+
+        }
+
+        public async Task<APIResponse<int>> DeleteQuestionAsnwers(Guid QuestionId)
+        {
+            var res = await chatQuestionRepository.DeleteAsync(QuestionId);
+
+            if (res > 0)
+                return APIResponse<int>.SuccessResponse(message: "Question answers removed from chatbot");
+
+
+            return APIResponse<int>.ErrorResponse();
         }
     }
 }

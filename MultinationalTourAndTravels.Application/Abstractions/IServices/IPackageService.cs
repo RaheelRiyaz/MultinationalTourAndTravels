@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MultinationalTourAndTravels.Application.Abstractions.IServices
 {
-    public interface IPackageService
+    public interface IPackageCostingService
     {
         Task<APIResponse<int>> AddPackage(PackageRequest model);
 

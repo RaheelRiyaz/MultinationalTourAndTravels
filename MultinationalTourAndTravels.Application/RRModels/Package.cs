@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using MultinationalTourAndTravels.Application.Validators;
 using MultinationalTourAndTravels.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,17 @@ using System.Threading.Tasks;
 
 namespace MultinationalTourAndTravels.Application.RRModels
 {
-    public record PackageRequest(IFormFileCollection Files, string Name, string Description, double StartingPrice, int Days, int Nights, double Longitude, double Latitude);
+    public record PackageRequest
+        (
+        [IsFilesImages("image/jpeg", "image/png", ErrorMessage = "Please provide a jpeg or png file")]
+        IFormFileCollection Files, 
+        string Name, 
+        string Description,
+        double StartingPrice,
+        int Days, int Nights,
+        double Longitude,
+        double Latitude
+        );
 
     public record PackageResponse
     {
@@ -43,6 +54,8 @@ namespace MultinationalTourAndTravels.Application.RRModels
         public IEnumerable<ItineraryResponse> Itineraries { get; set; } = Enumerable.Empty<ItineraryResponse>();
         public IEnumerable<CompactDestinationWithHotels> DestinationsWithHotels { get; set; } = Enumerable.Empty<CompactDestinationWithHotels>();
         public IEnumerable<PackageFile> Files { get; set; } = null!;
+
+        public IEnumerable<PackageCostingDBResponse> Costings = Enumerable.Empty<PackageCostingDBResponse>();
 
     }
 

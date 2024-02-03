@@ -55,4 +55,13 @@ namespace MultinationalTourAndTravels.Application.Mappers
         }
     }
 
+
+
+    public class PackageCostingMapper : Profile
+    {
+        public PackageCostingMapper()
+        {
+            CreateMap<PackageCostingRequest, PackageCosting>();
+        }
+    }
 }

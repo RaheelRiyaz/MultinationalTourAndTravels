@@ -9,9 +9,11 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IServices
 {
     public interface IChatBotService
     {
-        Task<APIResponse<IEnumerable<ChatBotResponse>>> ChatQuestions();
+        Task<APIResponse<IEnumerable<ChatBotResponse>>> AllChatQuestions();
+        Task<APIResponse<IEnumerable<ChatBotResponse>>> ActiveChatQuestions();
         Task<APIResponse<ChatBotResponse>> AddChatQuestions(ChatBotRequest model);
         Task<APIResponse<ChatBotResponse>> AddChatAnswer(ChatBotAnswerRequest model);
-        Task<APIResponse<ChatBotAsnwerResponse>> ChatAnswer(Guid QuestionId);
+        Task<APIResponse<IEnumerable<ChatBotAsnwerResponse>>> ChatAnswer(Guid QuestionId);
+        Task<APIResponse<int>> DeleteQuestionAsnwers(Guid QuestionId); 
     }
 }

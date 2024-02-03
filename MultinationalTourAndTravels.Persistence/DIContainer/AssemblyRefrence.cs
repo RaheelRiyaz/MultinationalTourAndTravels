@@ -33,6 +33,8 @@ namespace MultinationalTourAndTravels.Persistence.DIContainer
             services.AddScoped<IHotelsRepository, HotelsRepository>();
             services.AddScoped<IChatQuestionRepository, ChatBotQuestionRepository>();
             services.AddScoped<IChatAnswerRepository, ChatBotAnswerRepository>();
+            services.AddScoped<IPackageCostingRepository, PackageCostingRepository>();
+            services.AddScoped<ICabRepository, CabRepository>();
             return services;
         }
     }

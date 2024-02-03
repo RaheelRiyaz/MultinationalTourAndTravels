@@ -29,6 +29,8 @@ namespace MultinationalTourAndTravels.Persistence.Data
         public DbSet<DestinationDetails> DestinationDetails { get; set; } = null!;
         public DbSet<ChatQuestion> ChatQuestions { get; set; } = null!;
         public DbSet<ChatAnswer> ChatAnswers { get; set; } = null!;
+        public DbSet<PackageCosting> PackageCostings { get; set; } = null!;
+        public DbSet<Cab> Cabs { get; set; } = null!;
         #endregion Tables
     }
 }

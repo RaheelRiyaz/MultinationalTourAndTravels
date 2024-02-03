@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using MultinationalTourAndTravels.Application.Validators;
 using MultinationalTourAndTravels.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,11 @@ using System.Threading.Tasks;
 
 namespace MultinationalTourAndTravels.Application.RRModels
 {
-    public record SliderRequest(IFormFile File,string Description,ShowSlide ShowSlide);
+    public record SliderRequest(
+        [IsFileImage("image/jpeg", "image/png", ErrorMessage = "Please provide a jpeg or png file")]
+        IFormFile File,
+        string Description,
+        ShowSlide ShowSlide);
     public class SlideStatusRequest 
     {
         public Guid Id { get; set; }

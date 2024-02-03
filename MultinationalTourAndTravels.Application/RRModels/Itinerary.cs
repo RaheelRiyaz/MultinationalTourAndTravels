@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using MultinationalTourAndTravels.Application.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,15 @@ using System.Threading.Tasks;
 
 namespace MultinationalTourAndTravels.Application.RRModels
 {
-    public record ItineraryRequest(Guid PackageId,IFormFile? File, string Title,string Description,int Day);
+    public record ItineraryRequest
+        (
+        Guid PackageId,
+        [IsFileImage("image/jpeg", "image/png", ErrorMessage = "Please provide a jpeg or png file")]
+        IFormFile? File, 
+        string Title,string 
+        Description,
+        int Day
+        );
 
     public class ItineraryResponse 
     {

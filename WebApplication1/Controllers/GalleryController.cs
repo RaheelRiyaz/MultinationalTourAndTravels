@@ -19,7 +19,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
         [HttpPost]
-        public async Task<APIResponse<IEnumerable<GallerImage>>> AddImages(GalleryRequest model) =>
+        public async Task<APIResponse<IEnumerable<GallerImage>>> AddImages([FromForm]GalleryRequest model) =>
             await galleryService.AddImages(model);
 
 
@@ -38,5 +38,10 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpPost("delete-images")]
         public async Task<APIResponse<int>> Gallery(DeleletGalleryRequest model) =>
             await galleryService.DeleteGalleryImages(model.Ids);
+
+
+        [HttpGet("pagewize/{pageNo:int}/{pageSize:int}")]
+        public async Task<APIResponse<IEnumerable<GallerImage>>> GalleryPageWize(int pageNo, int pageSize) =>
+            await galleryService.GalleryPageWize(pageNo, pageSize);
     }
 }

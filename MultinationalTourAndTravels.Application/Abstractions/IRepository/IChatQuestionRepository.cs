@@ -9,5 +9,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IRepository
 {
     public interface IChatQuestionRepository : IBaseRepository<ChatQuestion>
     {
+        Task<int> DeleteQuestionAnswers(Guid questionId);
     }
 }

@@ -10,9 +10,9 @@ namespace MultinationalTourAndTravels.Api.Controllers
     [ApiController]
     public class PackagesController : ControllerBase
     {
-        private readonly IPackageService packageService;
+        private readonly IPackageCostingService packageService;
 
-        public PackagesController(IPackageService packageService)
+        public PackagesController(IPackageCostingService packageService)
         {
             this.packageService = packageService;
         }
@@ -39,5 +39,9 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpGet("display-packages/pagewize/{pageNo:int}/{total:int}")]
         public async Task<APIResponse<IEnumerable<DisplayingPackage>>> GetDisplayingPackagesPageWize(int pageNo, int total) =>
             await packageService.GetDisplayingPackagesPageWize(pageNo, total);
+
+
+
+
     }
 }

@@ -12,8 +12,9 @@ using System.Threading.Tasks;
 
 namespace MultinationalTourAndTravels.Application.Services
 {
-    public class PackageService : IPackageService
+    public class PackageService : IPackageCostingService
     {
+        private readonly IPackageCostingRepository packageCostingRepository;
         private readonly IPackageRepository packageRepository;
         private readonly IExclusionsRepository exclusionsRepository;
         private readonly IInclusionsRepository inclusionsRepository;
@@ -23,8 +24,9 @@ namespace MultinationalTourAndTravels.Application.Services
         private readonly IPackageDestination packageDestination;
         private readonly IHotelsRepository hotelsRepository;
 
-        public PackageService(IPackageRepository packageRepository, IExclusionsRepository exclusionsRepository, IInclusionsRepository inclusionsRepository, IItineraryRepository itineraryRepository, IMapper mapper, IFileService fileService, IPackageDestination packageDestination, IHotelsRepository hotelsRepository)
+        public PackageService(IPackageCostingRepository packageCostingRepository,IPackageRepository packageRepository, IExclusionsRepository exclusionsRepository, IInclusionsRepository inclusionsRepository, IItineraryRepository itineraryRepository, IMapper mapper, IFileService fileService, IPackageDestination packageDestination, IHotelsRepository hotelsRepository)
         {
+            this.packageCostingRepository = packageCostingRepository;
             this.packageRepository = packageRepository;
             this.exclusionsRepository = exclusionsRepository;
             this.inclusionsRepository = inclusionsRepository;
@@ -89,6 +91,7 @@ namespace MultinationalTourAndTravels.Application.Services
 
                 compactDestinationWithHotels.Add(CDH);
             }
+
             var files = await packageRepository.GetPackagesFiles(packageId);
             var itineraries = await itineraryRepository.ItineariesByPackgaeId(packageId);
             var exclusions = await exclusionsRepository.ViewExclusions(packageId);
@@ -101,7 +104,8 @@ namespace MultinationalTourAndTravels.Application.Services
                 Exclusions = exclusions,
                 Inclusions = inclusions,
                 Itineraries = itineraries,
-                Files = files
+                Costings = await packageCostingRepository.GetPackageCostings(packageId),
+                Files = files,
             };
 
             return APIResponse<CompactPackage>.SuccessResponse(result: compactPackage);

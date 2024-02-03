@@ -19,13 +19,15 @@ namespace MultinationalTourAndTravels.Application.DIContainer
             services.AddSingleton<IStorageService>(new StorageService(webrootPath));
             services.AddScoped<IFileService, FileService>();
             services.AddScoped<ISlideService, SliderService>();
-            services.AddScoped<IPackageService, PackageService>();
+            services.AddScoped<IPackageCostingService, PackageService>();
             services.AddScoped<IItineraryService, ItineraryService>();
             services.AddScoped<IInclusionsService, InclusionExcluionService>();
             services.AddScoped<IPackageDestinationService, PackageDestinationService>();
             services.AddScoped<IHotelsService, HotelsService>();
             services.AddScoped<IGalleryService, GalleryService>();
             services.AddScoped<IChatBotService, ChatBotService>();
+            services.AddScoped<IPackageCosting, PackageCostingService>();
+            services.AddScoped<ICabService, CabService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }
