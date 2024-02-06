@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MultinationalTourAndTravels.Persistence.Data;
 
@@ -11,9 +12,11 @@ using MultinationalTourAndTravels.Persistence.Data;
 namespace MultinationalTourAndTravels.Persistence.Migrations
 {
     [DbContext(typeof(MultinationalTourAndTravelsDbContext))]
-    partial class MultinationalTourAndTravelsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240205060559_linktree")]
+    partial class linktree
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,52 +50,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppFiles");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Booking", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Contact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsVerified")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NoOfAdults")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NoOfChildrens")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("PackageId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("TravelDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PackageId");
-
-                    b.ToTable("Bookings");
                 });
 
             modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Cab", b =>
@@ -330,10 +287,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -529,17 +482,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Booking", b =>
-                {
-                    b.HasOne("MultinationalTourAndTravels.Domain.Entities.Package", "Package")
-                        .WithMany()
-                        .HasForeignKey("PackageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Package");
                 });
 
             modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.DestinationDetails", b =>

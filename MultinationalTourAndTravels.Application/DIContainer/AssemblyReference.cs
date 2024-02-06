@@ -28,6 +28,8 @@ namespace MultinationalTourAndTravels.Application.DIContainer
             services.AddScoped<IChatBotService, ChatBotService>();
             services.AddScoped<IPackageCosting, PackageCostingService>();
             services.AddScoped<ICabService, CabService>();
+            services.AddScoped<ILinkTreeService, LinkTreeService>();
+            services.AddScoped<IBookingService, BookingService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

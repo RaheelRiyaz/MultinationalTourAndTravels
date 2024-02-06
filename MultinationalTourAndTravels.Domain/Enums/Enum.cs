@@ -60,4 +60,5 @@ namespace MultinationalTourAndTravels.Domain.Enums
         AC = 1,
         NON_AC = 2,
     }
+
 }

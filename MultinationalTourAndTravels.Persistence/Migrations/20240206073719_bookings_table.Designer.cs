@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MultinationalTourAndTravels.Persistence.Data;
 
@@ -11,9 +12,11 @@ using MultinationalTourAndTravels.Persistence.Data;
 namespace MultinationalTourAndTravels.Persistence.Migrations
 {
     [DbContext(typeof(MultinationalTourAndTravelsDbContext))]
-    partial class MultinationalTourAndTravelsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240206073719_bookings_table")]
+    partial class bookings_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

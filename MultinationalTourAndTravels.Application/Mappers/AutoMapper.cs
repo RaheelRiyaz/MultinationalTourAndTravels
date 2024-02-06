@@ -64,4 +64,14 @@ namespace MultinationalTourAndTravels.Application.Mappers
             CreateMap<PackageCostingRequest, PackageCosting>();
         }
     }
+
+
+    public class BookingMapper : Profile
+    {
+        public BookingMapper()
+        {
+            CreateMap<BookingRequest, Booking>();
+            CreateMap<Booking,BookingResponse>();
+        }
+    }
 }
