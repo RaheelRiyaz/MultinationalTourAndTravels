@@ -1,4 +1,5 @@
-﻿using MultinationalTourAndTravels.Domain.Entities;
+﻿using MultinationalTourAndTravels.Application.RRModels;
+using MultinationalTourAndTravels.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IRepository
 {
     public interface IBookingRepository : IBaseRepository<Booking>
     {
+        Task<IEnumerable<BookingResponse>> GetAllBookings();
     }
 }

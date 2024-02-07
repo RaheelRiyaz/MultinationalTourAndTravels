@@ -16,7 +16,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
-
+	<PropertyGroup>
+		<PreserveCompilationContext>true</PreserveCompilationContext>
+	</PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\MultinationalTourAndTravels.Domain\MultinationalTourAndTravels.Domain.csproj" />
   </ItemGroup>

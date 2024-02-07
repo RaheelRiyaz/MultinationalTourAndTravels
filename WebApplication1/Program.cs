@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceServices(builder.Configuration).
     AddApiServices(builder.Configuration).
-    AddInfrastructureServices().
+    AddInfrastructureServices(builder.Configuration).
     AddApplicationServices(builder.Environment.WebRootPath);
 var app = builder.Build();
 app.UseStaticFiles();

@@ -73,4 +73,12 @@ namespace MultinationalTourAndTravels.Application.RRModels
     }
 
 
+
+    public class AllPackageResponse : Package
+    {
+        public IEnumerable<PackageFile> Files { get; set; } = null!;
+    }
+
+
+    public record UpdateStatus(Guid Id);
 }

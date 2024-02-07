@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using MultinationalTourAndTravels.Application.Abstractions.EmailService;
 using MultinationalTourAndTravels.Application.Abstractions.IRepository;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
 using MultinationalTourAndTravels.Application.RRModels;
 using MultinationalTourAndTravels.Domain.Entities;
+using MultinationalTourAndTravels.Infrastructure.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,15 @@ namespace MultinationalTourAndTravels.Application.Services
     {
         private readonly IBookingRepository bookingRepository;
         private readonly IMapper mapper;
+        private readonly IEmailTemplateRenderer emailTemplateRenderer;
+        private readonly IEmailService emailService;
 
-        public BookingService(IBookingRepository bookingRepository ,IMapper mapper)
+        public BookingService(IBookingRepository bookingRepository ,IMapper mapper, IEmailTemplateRenderer emailTemplateRenderer,IEmailService emailService)
         {
             this.bookingRepository = bookingRepository;
             this.mapper = mapper;
+            this.emailTemplateRenderer = emailTemplateRenderer;
+            this.emailService = emailService;
         }
 
 
@@ -30,6 +36,17 @@ namespace MultinationalTourAndTravels.Application.Services
 
 
             var booking = mapper.Map<Booking>(model);
+
+            var settings = new MailSettings()
+            {
+                Body = await emailTemplateRenderer.EmailTemplate("BookingTemplate.cshtml", booking),
+                Subject = "Booking",
+                To = new List<string>() { "rahilriyaz7006@gmail.com" },
+            };
+
+
+            await emailService.SendEmailAsync(settings);
+
 
             var res = await bookingRepository.AddAsync(booking);
 
@@ -49,7 +66,9 @@ namespace MultinationalTourAndTravels.Application.Services
             if (booking is null)
                 return APIResponse<int>.ErrorResponse();
 
-            booking.IsVerified = model.IsVerified;
+            booking.IsVerified = !booking.IsVerified;
+            booking.UpdatedOn = DateTime.Now;
+
 
             var res = await bookingRepository.UpdateAsync(booking);
 
@@ -67,12 +86,9 @@ namespace MultinationalTourAndTravels.Application.Services
 
         public async Task<APIResponse<IEnumerable<BookingResponse>>> ViewBookings()
         {
-            var bookings = await bookingRepository.GetAllAsync();
+            var bookings = await bookingRepository.GetAllBookings();
 
-            var response = mapper.Map<IEnumerable<BookingResponse>>(bookings);
-
-
-            return APIResponse<IEnumerable<BookingResponse>>.SuccessResponse(result: response);
+            return APIResponse<IEnumerable<BookingResponse>>.SuccessResponse(result: bookings);
         }
     }
 

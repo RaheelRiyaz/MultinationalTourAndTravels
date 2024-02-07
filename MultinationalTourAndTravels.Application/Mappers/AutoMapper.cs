@@ -62,6 +62,7 @@ namespace MultinationalTourAndTravels.Application.Mappers
         public PackageCostingMapper()
         {
             CreateMap<PackageCostingRequest, PackageCosting>();
+            CreateMap<Package, AllPackageResponse>();
         }
     }
 

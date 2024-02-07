@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
 using MultinationalTourAndTravels.Application.RRModels;
+using MultinationalTourAndTravels.Domain.Entities;
 
 namespace MultinationalTourAndTravels.Api.Controllers
 {
@@ -41,7 +42,13 @@ namespace MultinationalTourAndTravels.Api.Controllers
             await packageService.GetDisplayingPackagesPageWize(pageNo, total);
 
 
+        [HttpGet("all-packages")]
+        public async Task<APIResponse<IEnumerable<AllPackageResponse>>> GetAllPackages() =>
+            await packageService.GetAllPackages();
 
 
+        [HttpPut("status")]
+        public async Task<APIResponse<int>> UpdatePackageStatus(UpdateStatus model) =>
+            await packageService.UpdatePackageStatus(model);
     }
 }

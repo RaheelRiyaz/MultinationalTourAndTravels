@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,9 @@ namespace MultinationalTourAndTravels.Application.RRModels
         string Name, 
         string Email, 
         string Contact,
-        int NoOfAdults, 
+        [Range(1,20)]
+        int NoOfAdults,
+        [Range(1,20)]
         int NoOfChildrens,
         DateTime TravelDate
         );
@@ -32,7 +35,6 @@ namespace MultinationalTourAndTravels.Application.RRModels
 
       public record UpdateBooking
         (
-        Guid Id,
-        bool IsVerified
+        Guid Id
         );
 }
