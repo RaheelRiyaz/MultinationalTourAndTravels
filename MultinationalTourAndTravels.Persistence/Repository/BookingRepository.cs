@@ -19,16 +19,20 @@ namespace MultinationalTourAndTravels.Persistence.Repository
 
 
 
-        public async Task<IEnumerable<BookingResponse>> GetAllBookings()
+        public async Task<IEnumerable<BookingWithPackageName>> GetAllBookings()
         {
-            string query = $@"SELECT PackageId,Id,[Name],
-                            Email,Contact,NoOfAdults,
-                            NoOfChildrens,TravelDate,
-                            IsVerified
-                            FROM Bookings
-                            ORDER BY IsVerified,CreatedOn DESC";
+            string query = $@"SELECT B.Id as BookingId,
+                            B.[Name] as Customer,
+                            B.Contact,B.Email,
+                            B.NoOfAdults,B.NoOfChildrens,
+                            B.IsVerified,P.[Name] as Package,
+                            B.TravelDate
+                            FROM BOOKINGS B
+                            INNER JOIN Packages P
+                            ON P.Id = B.PackageId
+                            ORDER BY IsVerified,B.CreatedOn DESC";
 
-            return await dbContext.QueryAsync<BookingResponse>(query);
+            return await dbContext.QueryAsync<BookingWithPackageName>(query);
         }
     }
 }

@@ -10,6 +10,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IRepository
 {
     public interface IBookingRepository : IBaseRepository<Booking>
     {
-        Task<IEnumerable<BookingResponse>> GetAllBookings();
+        Task<IEnumerable<BookingWithPackageName>> GetAllBookings();
     }
 }

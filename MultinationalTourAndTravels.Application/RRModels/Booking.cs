@@ -37,4 +37,17 @@ namespace MultinationalTourAndTravels.Application.RRModels
         (
         Guid Id
         );
+
+    public record BookingWithPackageName
+        (
+        Guid BookingId,
+        string Customer,
+        string Contact,
+        string Email,
+        int NoOfAdults,
+        int NoOfChildrens,
+        bool IsVerified,
+        string Package,
+        DateTime TravelDate
+        );
 }

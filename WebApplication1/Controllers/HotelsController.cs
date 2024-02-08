@@ -43,7 +43,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
         [HttpDelete("{id:guid}")]
-        public async Task<APIResponse<HotelResponse>> DeleteHotel(Guid id) =>
+        public async Task<APIResponse<int>> DeleteHotel(Guid id) =>
             await hotelsService.DeleteHotel(id);
     }
 }

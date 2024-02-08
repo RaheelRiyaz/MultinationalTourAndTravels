@@ -19,7 +19,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
         [HttpGet]
-        public async Task<APIResponse<IEnumerable<BookingResponse>>> ViewBookings() =>
+        public async Task<APIResponse<IEnumerable<BookingWithPackageName>>> ViewBookings() =>
             await bookingService.ViewBookings();
 
 
@@ -32,6 +32,11 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpPut("status")]
         public async Task<APIResponse<int>> UpdateBookingStatus(UpdateBooking model) =>
             await bookingService.UpdateBookingStatus(model);
+
+
+        [HttpDelete("{id:guid}")]
+        public async Task<APIResponse<int>> DeleteBookingById(Guid id) =>
+            await bookingService.DeleteBookingById(id);
 
     }
 }

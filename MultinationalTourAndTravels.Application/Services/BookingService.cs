@@ -58,6 +58,16 @@ namespace MultinationalTourAndTravels.Application.Services
         }
 
 
+        public async Task<APIResponse<int>> DeleteBookingById(Guid id)
+        {
+            var res = await bookingRepository.DeleteAsync(id);
+
+            if (res > 0)
+                return APIResponse<int>.SuccessResponse("Booking removed successfully", result: res);
+
+            return APIResponse<int>.ErrorResponse();
+        }
+
 
         public async Task<APIResponse<int>> UpdateBookingStatus(UpdateBooking model)
         {
@@ -84,11 +94,11 @@ namespace MultinationalTourAndTravels.Application.Services
             throw new NotImplementedException();
         }
 
-        public async Task<APIResponse<IEnumerable<BookingResponse>>> ViewBookings()
+        public async Task<APIResponse<IEnumerable<BookingWithPackageName>>> ViewBookings()
         {
             var bookings = await bookingRepository.GetAllBookings();
 
-            return APIResponse<IEnumerable<BookingResponse>>.SuccessResponse(result: bookings);
+            return APIResponse<IEnumerable<BookingWithPackageName>>.SuccessResponse(result: bookings);
         }
     }
 

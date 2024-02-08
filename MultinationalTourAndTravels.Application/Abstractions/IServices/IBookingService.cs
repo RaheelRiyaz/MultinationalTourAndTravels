@@ -9,10 +9,10 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IServices
 {
     public interface IBookingService
     {
-        Task<APIResponse<IEnumerable<BookingResponse>>> ViewBookings();
+        Task<APIResponse<IEnumerable<BookingWithPackageName>>> ViewBookings();
         Task<APIResponse<BookingResponse>> ViewBookingById(Guid id);
+        Task<APIResponse<int>> DeleteBookingById(Guid id);
         Task<APIResponse<int>> UpdateBookingStatus(UpdateBooking model);
-
         Task<APIResponse<BookingResponse>> AddBookings(BookingRequest model);
     }
 }

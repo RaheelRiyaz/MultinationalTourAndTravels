@@ -53,7 +53,7 @@ namespace MultinationalTourAndTravels.Application.Services
             var res = await cabRepository.DeleteAsync(cabId);
 
             if (res > 0)
-                return APIResponse<int>.SuccessResponse("Cab deeleted successfully", result: res);
+                return APIResponse<int>.SuccessResponse("Cab deleted successfully", result: res);
 
             return APIResponse<int>.ErrorResponse();
         }

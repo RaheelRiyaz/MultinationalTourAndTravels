@@ -14,8 +14,11 @@ namespace MultinationalTourAndTravels.Persistence.Data
 
 
 
-
-
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            //modelBuilder.SeedData();
+        }
         #region Tables
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<AppFile> AppFiles { get; set; } = null!;
@@ -34,5 +37,48 @@ namespace MultinationalTourAndTravels.Persistence.Data
         public DbSet<LinkTree> LinkTrees { get; set; } = null!;
         public DbSet<Booking> Bookings { get; set; } = null!;
         #endregion Tables
+
+
+
+
     }
+
+    #region Seed Data
+
+    public static class ModelBuilderExtentions
+    {
+        public static void SeedData(this ModelBuilder modelBuilder)
+        {
+
+
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                Id = Guid.Parse("1b61edcd-aac5-4aeb-896a-6b197afe90d3"),
+                Email = "info@PandaTourAndTravels.com",
+                Password = "$2a$11$S9U49bmGuzA0LyfSj2INNuyBd/oyMarMY6/9AW91q2drUO0nusDle",
+                Salt = "$2a$11$S9U49bmGuzA0LyfSj2INNu",
+                CreatedOn = DateTime.Now,
+            });
+
+
+
+            modelBuilder.Entity<LinkTree>().HasData(
+                new LinkTree
+                {
+                    Address = String.Empty,
+                    Facebbook = String.Empty,
+                    Google = String.Empty,
+                    Instagram = String.Empty,
+                    Youtube = String.Empty,
+                    Whatsapp = String.Empty,
+                    Twitter = String.Empty,
+                    CreatedOn = DateTime.Now,
+                    Id = Guid.NewGuid(),
+                    UpdatedOn = DateTime.Now
+                }
+                );
+        }
+    }
+    #endregion Seed Data
+
 }
