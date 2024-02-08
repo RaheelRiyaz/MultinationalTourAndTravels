@@ -54,9 +54,9 @@ namespace MultinationalTourAndTravels.Persistence.Data
             modelBuilder.Entity<User>().HasData(new User
             {
                 Id = Guid.Parse("1b61edcd-aac5-4aeb-896a-6b197afe90d3"),
-                Email = "info@PandaTourAndTravels.com",
-                Password = "$2a$11$S9U49bmGuzA0LyfSj2INNuyBd/oyMarMY6/9AW91q2drUO0nusDle",
-                Salt = "$2a$11$S9U49bmGuzA0LyfSj2INNu",
+                Email = "multinationaltourandtravels@gmail.com",
+                Password = "MnadJgpdArFr7ARvOV7jxReCAjCaR6vlGqo+LYcacKU=",
+                Salt = "Obq2D6we1CB3GIFd5vhpC2ASw9FovYEsnWq13TQoC7s=",
                 CreatedOn = DateTime.Now,
             });
 
