@@ -1,4 +1,5 @@
-﻿using MultinationalTourAndTravels.Application.Abstractions.IRepository;
+﻿using AutoMapper;
+using MultinationalTourAndTravels.Application.Abstractions.IRepository;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
 using MultinationalTourAndTravels.Application.RRModels;
 using MultinationalTourAndTravels.Domain.Entities;
@@ -47,7 +48,20 @@ namespace MultinationalTourAndTravels.Application.Services
             return APIResponse<int>.ErrorResponse();
         }
 
+        public async Task<APIResponse<int>> DeleteHotel(Guid id)
+        {
+            var hotel = await hotelsRepository.GetByIdAsync(id);
 
+            if (hotel is null)
+                return APIResponse<int>.ErrorResponse();
+
+            var res = await hotelsRepository.DeleteAsync(hotel);
+
+            if (res > 0)
+                return APIResponse<int>.SuccessResponse("Hotel removed successfully", result: res);
+
+            return APIResponse<int>.ErrorResponse();
+        }
 
         public async Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotels()
         {

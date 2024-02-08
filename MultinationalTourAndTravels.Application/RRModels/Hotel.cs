@@ -33,7 +33,7 @@ namespace MultinationalTourAndTravels.Application.RRModels
         public string Description { get; set; } = string.Empty;
 
         [Required]
-        [IsFileImage("image/jpeg", "image/png", ErrorMessage = "Please provide a jpeg or png file")]
+        // [IsFileImage("image/jpeg", "image/png", ErrorMessage = "Please provide a jpeg or png file")]
         public IFormFile File { get; set; } = null!;
     }
 

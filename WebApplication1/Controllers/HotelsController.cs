@@ -39,5 +39,11 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpGet("hotels-pagewize/{pageNo:int}/{total:int}")]
         public async Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotelsPageWize(int pageNo, int total) =>
             await hotelsService.ViewHotelsPageWize(pageNo, total);
+
+
+
+        [HttpDelete("{id:guid}")]
+        public async Task<APIResponse<HotelResponse>> DeleteHotel(Guid id) =>
+            await hotelsService.DeleteHotel(id);
     }
 }

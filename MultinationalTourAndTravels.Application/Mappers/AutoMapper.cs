@@ -75,4 +75,13 @@ namespace MultinationalTourAndTravels.Application.Mappers
             CreateMap<Booking,BookingResponse>();
         }
     }
+
+
+    public class HotelMapper : Profile
+    {
+        public HotelMapper()
+        {
+            CreateMap<HotelResponse, Hotel>();
+        }
+    }
 }
