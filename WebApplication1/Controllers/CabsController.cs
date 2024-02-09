@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -8,6 +9,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CabsController : ControllerBase
     {
         private readonly ICabService cabService;
@@ -17,10 +19,13 @@ namespace MultinationalTourAndTravels.Api.Controllers
             this.cabService = cabService;
         }
 
+
         [HttpPost]
         public async Task<APIResponse<int>> AddNewCab([FromForm] CabRequest model) =>
             await cabService.AddNewCab(model);
 
+
+        [AllowAnonymous]
         [HttpGet("all-cabs")]
         public async Task<APIResponse<IEnumerable<CabResponse>>> GetAllCabs() =>
             await cabService.GetAllCabs();

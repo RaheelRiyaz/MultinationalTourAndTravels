@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -9,6 +10,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class InclusionExclusionsController : ControllerBase
     {
         private readonly IInclusionsService service;
@@ -29,11 +31,15 @@ namespace MultinationalTourAndTravels.Api.Controllers
            await service.AddExclusion(model);
 
 
+
+        [AllowAnonymous]
         [HttpGet("/api/inclusions/{packageId:guid}")]
         public async Task<APIResponse<IEnumerable<InclusionOrExclusionResponse>>> ViewIncclusions(Guid packageId)=>
             await service.ViewInclusions(packageId);
 
 
+
+        [AllowAnonymous]
         [HttpGet("/api/exclusions/{packageId:guid}")]
         public async Task<APIResponse<IEnumerable<InclusionOrExclusionResponse>>> ViewExclusions(Guid packageId) =>
             await service.ViewExclusions(packageId);

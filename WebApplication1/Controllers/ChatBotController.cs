@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -8,6 +9,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ChatBotController : ControllerBase
     {
         private readonly IChatBotService chatBotService;
@@ -17,7 +19,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
             this.chatBotService = chatBotService;
         }
 
-
+        [AllowAnonymous]
         [HttpGet("active-questions")]
         public async Task<APIResponse<IEnumerable<ChatBotResponse>>> ActiveChatQuestions()=>
             await chatBotService.ActiveChatQuestions();
@@ -41,7 +43,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
             await chatBotService.AddChatAnswer(model);
 
 
-
+        [AllowAnonymous]
         [HttpGet("answer/{questionId:guid}")]
         public async Task<APIResponse<IEnumerable<ChatBotAsnwerResponse>>> ChatAnswer(Guid questionId)=>
             await chatBotService.ChatAnswer(questionId);

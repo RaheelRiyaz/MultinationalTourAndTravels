@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -9,6 +10,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class LinkTreesController : ControllerBase
     {
         private readonly ILinkTreeService linkTreeService;
@@ -25,6 +27,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<APIResponse<LinkTree>> GetLinks() =>
             await linkTreeService.GetLinks();
 

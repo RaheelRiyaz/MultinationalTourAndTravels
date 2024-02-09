@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -8,6 +9,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class SliderController : ControllerBase
     {
         private readonly ISlideService slideService;
@@ -28,6 +30,8 @@ namespace MultinationalTourAndTravels.Api.Controllers
             await slideService.GetAllSlides();
 
 
+
+        [AllowAnonymous]
         [HttpGet("active-slides")]
         public async Task<APIResponse<IEnumerable<SliderResponse>>> GetActiveSlides() =>
             await slideService.GetActiveSlides();

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -9,6 +10,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class HotelsController : ControllerBase
     {
         private readonly IHotelsService hotelsService;
@@ -25,12 +27,13 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotels() =>
             await hotelsService.ViewHotels();
 
 
-
+        [AllowAnonymous]
         [HttpGet("packageType/{packageType:int}")]
         public async Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotels(PackageType packageType) =>
             await hotelsService.ViewHotelsByPackageType(packageType);

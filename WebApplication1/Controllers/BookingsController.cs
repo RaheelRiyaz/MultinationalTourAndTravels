@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -8,6 +9,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BookingsController : ControllerBase
     {
         private readonly IBookingService bookingService;
@@ -24,6 +26,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
 
+        [AllowAnonymous]
         [HttpPost]
         public async Task<APIResponse<BookingResponse>> AddBookings(BookingRequest model) =>
             await bookingService.AddBookings(model);
