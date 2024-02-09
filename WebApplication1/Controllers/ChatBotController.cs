@@ -22,9 +22,12 @@ namespace MultinationalTourAndTravels.Api.Controllers
         public async Task<APIResponse<IEnumerable<ChatBotResponse>>> ActiveChatQuestions()=>
             await chatBotService.ActiveChatQuestions();
 
+
+
         [HttpGet("all-questions")]
         public async Task<APIResponse<IEnumerable<ChatBotResponse>>> AllChatQuestions() =>
            await chatBotService.AllChatQuestions();
+
 
 
         [HttpPost("chat-question")]
@@ -32,9 +35,11 @@ namespace MultinationalTourAndTravels.Api.Controllers
             await chatBotService.AddChatQuestions(model);
 
 
+
         [HttpPost("answer")]
         public async Task<APIResponse<ChatBotResponse>> AddChatAnswer(ChatBotAnswerRequest model) =>
             await chatBotService.AddChatAnswer(model);
+
 
 
         [HttpGet("answer/{questionId:guid}")]
@@ -42,9 +47,16 @@ namespace MultinationalTourAndTravels.Api.Controllers
             await chatBotService.ChatAnswer(questionId);
 
 
-        [HttpDelete("queston-answers/{questionId:guid}")]
+
+        [HttpDelete("question-answers/{questionId:guid}")]
         public async Task<APIResponse<int>> DeleteQuestionAsnwers(Guid questionId) =>
             await chatBotService.DeleteQuestionAsnwers(questionId);
+
+
+
+        [HttpPut("status")]
+        public async Task<APIResponse<int>> ToggleQuestionStatus(UpdateQuestionStatus model) =>
+            await chatBotService.ToggleQuestionStatus(model);
 
     }
 }

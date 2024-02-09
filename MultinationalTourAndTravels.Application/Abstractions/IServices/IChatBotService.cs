@@ -15,5 +15,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IServices
         Task<APIResponse<ChatBotResponse>> AddChatAnswer(ChatBotAnswerRequest model);
         Task<APIResponse<IEnumerable<ChatBotAsnwerResponse>>> ChatAnswer(Guid QuestionId);
         Task<APIResponse<int>> DeleteQuestionAsnwers(Guid QuestionId); 
+        Task<APIResponse<int>> ToggleQuestionStatus(UpdateQuestionStatus model); 
     }
 }

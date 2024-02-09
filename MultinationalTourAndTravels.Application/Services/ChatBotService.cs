@@ -29,7 +29,7 @@ namespace MultinationalTourAndTravels.Application.Services
             var res = await chatAnswerRepository.AddAsync(chatAnswer);
 
             if (res > 0)
-                return APIResponse<ChatBotResponse>.SuccessResponse(result: new ChatBotResponse(chatAnswer.Id, chatAnswer.Answer));
+                return APIResponse<ChatBotResponse>.SuccessResponse(result: new ChatBotResponse(chatAnswer.Id, chatAnswer.Answer, null));
 
             return APIResponse<ChatBotResponse>.ErrorResponse();
         }
@@ -42,7 +42,7 @@ namespace MultinationalTourAndTravels.Application.Services
                 chatQuestionRepository.AddAsync(chatquestion);
 
             if (res > 0)
-                return APIResponse<ChatBotResponse>.SuccessResponse(result: new ChatBotResponse(chatquestion.Id, chatquestion.Question));
+                return APIResponse<ChatBotResponse>.SuccessResponse(result: new ChatBotResponse(chatquestion.Id, chatquestion.Question,chatquestion.Show));
 
             return APIResponse<ChatBotResponse>.ErrorResponse();
         }
@@ -62,23 +62,45 @@ namespace MultinationalTourAndTravels.Application.Services
             var qustions = (await chatQuestionRepository.GetAllAsync()).OrderBy(_=>_.CreatedOn);
 
 
-            return APIResponse<IEnumerable<ChatBotResponse>>.SuccessResponse(result: qustions.Select(_ => new ChatBotResponse(_.Id, _.Question)));
+            return APIResponse<IEnumerable<ChatBotResponse>>.SuccessResponse(result: qustions.Select(_ => new ChatBotResponse(_.Id, _.Question,_.Show)));
         }
 
         public async Task<APIResponse<IEnumerable<ChatBotResponse>>> ActiveChatQuestions()
         {
             var qustions = (await chatQuestionRepository.FilterAsync(_ => _.Show)).OrderBy(_=>_.CreatedOn);
 
-            return APIResponse<IEnumerable<ChatBotResponse>>.SuccessResponse(result: qustions.Select(_ => new ChatBotResponse(_.Id, _.Question)));
+            return APIResponse<IEnumerable<ChatBotResponse>>.SuccessResponse(result: qustions.Select(_ => new ChatBotResponse(_.Id, _.Question,_.Show)));
 
         }
 
         public async Task<APIResponse<int>> DeleteQuestionAsnwers(Guid QuestionId)
         {
             var res = await chatQuestionRepository.DeleteAsync(QuestionId);
+            var answers = await chatAnswerRepository.FilterAsync(_ => _.QuestionId== QuestionId);
+
+            await chatAnswerRepository.DeleteRangeAsync(answers);
 
             if (res > 0)
                 return APIResponse<int>.SuccessResponse(message: "Question answers removed from chatbot");
+
+
+            return APIResponse<int>.ErrorResponse();
+        }
+
+
+        public async Task<APIResponse<int>> ToggleQuestionStatus(UpdateQuestionStatus model)
+        {
+            var question = await chatQuestionRepository.GetByIdAsync(model.Id);
+
+            if (question is null)
+                return APIResponse<int>.ErrorResponse();
+
+            question.Show = !question.Show;
+
+            var res = await chatQuestionRepository.UpdateAsync(question);
+
+            if (res > 0)
+                return APIResponse<int>.SuccessResponse("Status updated successfully", result: res);
 
 
             return APIResponse<int>.ErrorResponse();
