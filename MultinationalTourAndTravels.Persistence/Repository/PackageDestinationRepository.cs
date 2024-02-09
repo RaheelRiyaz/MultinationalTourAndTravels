@@ -25,5 +25,13 @@ namespace MultinationalTourAndTravels.Persistence.Repository
 
             return await dbContext.QueryAsync<DestinationName>(query, new { packageId });
         }
+
+        public async Task<IEnumerable<PackageDestination>> PackageDestinations(Guid id)
+        {
+            string query = $@"SELECT * FROM PackageDestinations  
+                            WHERE PackageId = @id";
+
+            return await dbContext.QueryAsync<PackageDestination>(query, new { id });
+        }
     }
 }

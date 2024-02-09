@@ -27,5 +27,10 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpGet("package/{packageId:guid}")]
         public async Task<APIResponse<IEnumerable<ItineraryResponse>>> PackageItineraries(Guid packageId) =>
             await itineraryService.PackageItineraries(packageId);
+
+
+        [HttpDelete("{id:guid}")]
+        public async Task<APIResponse<int>> DeleteItinerary(Guid id) =>
+            await itineraryService.DeleteItinerary(id);
     }
 }

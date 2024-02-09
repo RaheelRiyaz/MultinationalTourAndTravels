@@ -11,6 +11,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IRepository
     public interface IPackageDestination : IBaseRepository<PackageDestination>
     {
         Task<IEnumerable<DestinationName>> GetDestinationNamesByPackage(Guid packageId);
-
+        Task<IEnumerable<PackageDestination>> PackageDestinations(Guid id);
     }
 }

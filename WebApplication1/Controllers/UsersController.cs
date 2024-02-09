@@ -31,5 +31,16 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpPut("change-password")]
         public async Task<APIResponse<int>> ChangePassword(ChangePasswordRequest model) =>
             await userService.ChangePassword(model);
+
+
+
+        [HttpPost("forgot-password")]
+        public async Task<APIResponse<int>> ForgotPassword(ForgotPasswordRequest model) =>
+            await userService.ForgotPassword(model);
+
+
+        [HttpPost("reset-password")]
+        public async Task<APIResponse<int>> ResetPassword(ResetPasswordRequest model) =>
+            await userService.ResetPassword(model);
     }
 }

@@ -47,5 +47,24 @@ namespace MultinationalTourAndTravels.Application.Services
 
             return APIResponse<DestinationDetailRequest>.ErrorResponse(); 
         }
+
+
+        public async Task<APIResponse<int>> DeletePackageDestination(Guid id)
+        {
+            var res = await packageDestination.DeleteAsync(id);
+
+            if (res > 0)
+                return APIResponse<int>.SuccessResponse("Destination removed", result: res);
+
+            return APIResponse<int>.ErrorResponse();
+        }
+
+
+        public async Task<APIResponse<IEnumerable<PackageDestination>>> PackageDestinations(Guid id)
+        {
+            var destinations = await packageDestination.PackageDestinations(id);
+
+            return APIResponse<IEnumerable<PackageDestination>>.SuccessResponse(result: destinations);
+        }
     }
 }

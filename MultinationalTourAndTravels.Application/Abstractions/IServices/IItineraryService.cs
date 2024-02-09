@@ -11,5 +11,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IServices
     {
         Task<APIResponse<ItineraryResponse>> AddItinerary(ItineraryRequest model);
         Task<APIResponse<IEnumerable<ItineraryResponse>>> PackageItineraries(Guid packageId);
+        Task<APIResponse<int>> DeleteItinerary(Guid id);
     }
 }
