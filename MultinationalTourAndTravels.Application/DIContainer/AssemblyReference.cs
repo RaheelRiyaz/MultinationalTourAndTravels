@@ -30,6 +30,7 @@ namespace MultinationalTourAndTravels.Application.DIContainer
             services.AddScoped<ICabService, CabService>();
             services.AddScoped<ILinkTreeService, LinkTreeService>();
             services.AddScoped<IBookingService, BookingService>();
+            services.AddScoped<IContactsService, ContactService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

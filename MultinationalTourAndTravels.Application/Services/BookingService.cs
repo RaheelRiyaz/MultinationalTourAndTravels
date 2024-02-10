@@ -48,6 +48,8 @@ namespace MultinationalTourAndTravels.Application.Services
             await emailService.SendEmailAsync(settings); 
 
 
+
+
             var res = await bookingRepository.AddAsync(booking);
 
             if (res > 0)

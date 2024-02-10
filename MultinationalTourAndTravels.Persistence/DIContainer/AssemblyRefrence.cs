@@ -37,6 +37,7 @@ namespace MultinationalTourAndTravels.Persistence.DIContainer
             services.AddScoped<ICabRepository, CabRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<ILinkTreeRepository, LinkTreeRepository>();
+            services.AddScoped<IContactsRepository, ContactsRepository>();
             return services;
         }
     }
