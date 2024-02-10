@@ -116,7 +116,6 @@ namespace MultinationalTourAndTravels.Application.Services
                 Exclusions = exclusions,
                 Inclusions = inclusions,
                 Itineraries = itineraries,
-                Costings = await packageCostingRepository.GetPackageCostings(packageId),
                 Files = files,
             };
 
@@ -159,6 +158,41 @@ namespace MultinationalTourAndTravels.Application.Services
             var totalPackages = packages?.Result?.Skip((pageNo - 1) * total).Take(total);
 
             return APIResponse<IEnumerable<DisplayingPackage>>.SuccessResponse(result: totalPackages);
+        }
+
+        public async Task<APIResponse<PackageResponse>> PackageById(Guid id)
+        {
+            var package = await packageRepository.PackageById(id);
+
+            if (package is null)
+                return APIResponse<PackageResponse>.ErrorResponse();
+
+            return APIResponse<PackageResponse>.SuccessResponse(result: package);
+        }
+
+        public async Task<APIResponse<int>> UpdatePackage(UpdatePackageRequest model)
+        {
+            var package = await packageRepository.GetByIdAsync(model.Id);
+
+            if (package is null)
+                return APIResponse<int>.ErrorResponse();
+
+            package.Longitude = model.Longitude; 
+            package.Latitude = model.Latitude;
+            package.Name = model.Name;
+            package.StartingPrice = model.StartingPrice;
+            package.Description = model.Description;
+            package.Days = model.Days;
+            package.Name = model.Name;
+            package.Nights = model.Nights;
+            package.UpdatedOn = DateTime.Now;
+
+            var res = await packageRepository.UpdateAsync(package);
+
+            if (res > 0)
+                return APIResponse<int>.SuccessResponse("Package Updated Successfully", result: res);
+
+            return APIResponse<int>.ErrorResponse();
         }
 
 

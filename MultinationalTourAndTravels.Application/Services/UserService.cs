@@ -60,7 +60,7 @@ namespace MultinationalTourAndTravels.Application.Services
             var user = await userRepository.FirstOrDefaultAsync(_ => _.Email == model.Email);
 
             if (user is null)
-                return APIResponse<int>.ErrorResponse("Invalid Crdentials");
+                return APIResponse<int>.ErrorResponse("Invalid CrEdentials");
 
             user.ResetCode = GenerateResetCode();
             user.ResetExpirationDate = DateTime.Now.AddMinutes(5);
@@ -68,7 +68,7 @@ namespace MultinationalTourAndTravels.Application.Services
             var email = new MailSettings()
             {
                 Body = await emailTemplateRenderer.EmailTemplate("PasswordReset.cshtml", new { ResetCode = user.ResetCode }),
-                To = new List<string>() {"rahilriyaz27@gmail.com" },
+                To = new List<string>() { model.Email},
                 Subject = "Reset Password"
             };
 
@@ -111,6 +111,9 @@ namespace MultinationalTourAndTravels.Application.Services
 
             if(DateTime.Now > user.ResetExpirationDate)
                 return APIResponse<int>.ErrorResponse("Reset Code has been expired");
+
+            if(user.ResetCode != model.ResetCode)
+                return APIResponse<int>.ErrorResponse("Reset code is invalid");
 
 
             user.Password = AppEncryption.GenerateHashedPassword(user.Salt, model.NewPassword);

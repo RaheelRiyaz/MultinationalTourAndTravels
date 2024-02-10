@@ -47,7 +47,7 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
 
-
+        [AllowAnonymous]
         [HttpGet("all-packages")]
         public async Task<APIResponse<IEnumerable<AllPackageResponse>>> GetAllPackages() =>
             await packageService.GetAllPackages();
@@ -56,5 +56,16 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpPut("status")]
         public async Task<APIResponse<int>> UpdatePackageStatus(UpdateStatus model) =>
             await packageService.UpdatePackageStatus(model);
+
+
+
+        [HttpPut]
+        public async Task<APIResponse<int>> UpdatePackage(UpdatePackageRequest model) =>
+            await packageService.UpdatePackage(model);
+
+
+        [HttpGet("{id:guid}")]
+        public async Task<APIResponse<PackageResponse>> PackageById(Guid id) =>
+            await packageService.PackageById(id);
     }
 }

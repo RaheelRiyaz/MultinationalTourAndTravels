@@ -55,7 +55,7 @@ namespace MultinationalTourAndTravels.Application.RRModels
         public IEnumerable<CompactDestinationWithHotels> DestinationsWithHotels { get; set; } = Enumerable.Empty<CompactDestinationWithHotels>();
         public IEnumerable<PackageFile> Files { get; set; } = null!;
 
-        public IEnumerable<PackageCostingDBResponse> Costings = Enumerable.Empty<PackageCostingDBResponse>();
+       // public IEnumerable<PackageCostingDBResponse> Costings = Enumerable.Empty<PackageCostingDBResponse>();
 
     }
 
@@ -79,6 +79,18 @@ namespace MultinationalTourAndTravels.Application.RRModels
         public IEnumerable<PackageFile> Files { get; set; } = null!;
     }
 
-
     public record UpdateStatus(Guid Id);
+
+
+    public record UpdatePackageRequest
+        (
+        Guid Id,
+        string Name,
+        string Description,
+        double StartingPrice,
+        double Longitude,
+        double Latitude,
+        int Days,
+        int Nights
+        );
 }

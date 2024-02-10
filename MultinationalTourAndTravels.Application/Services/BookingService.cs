@@ -41,11 +41,11 @@ namespace MultinationalTourAndTravels.Application.Services
             {
                 Body = await emailTemplateRenderer.EmailTemplate("BookingTemplate.cshtml", booking),
                 Subject = "Booking",
-                To = new List<string>() { "rahilriyaz7006@gmail.com" },
+                To = new List<string>() { "multinationaltravellers@gmail.com" },
             };
 
 
-            await emailService.SendEmailAsync(settings);
+            await emailService.SendEmailAsync(settings); 
 
 
             var res = await bookingRepository.AddAsync(booking);

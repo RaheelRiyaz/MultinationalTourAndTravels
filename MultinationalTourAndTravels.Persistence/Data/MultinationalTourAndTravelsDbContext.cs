@@ -54,7 +54,7 @@ namespace MultinationalTourAndTravels.Persistence.Data
             modelBuilder.Entity<User>().HasData(new User
             {
                 Id = Guid.Parse("1b61edcd-aac5-4aeb-896a-6b197afe90d3"),
-                Email = "multinationaltourandtravels@gmail.com",
+                Email = "multinationaltravellers@gmail.com",
                 Password = "MnadJgpdArFr7ARvOV7jxReCAjCaR6vlGqo+LYcacKU=",
                 Salt = "Obq2D6we1CB3GIFd5vhpC2ASw9FovYEsnWq13TQoC7s=",
                 CreatedOn = DateTime.Now,

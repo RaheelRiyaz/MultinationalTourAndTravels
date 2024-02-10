@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,9 +16,7 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
-	<PropertyGroup>
-		<PreserveCompilationContext>true</PreserveCompilationContext>
-	</PropertyGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\MultinationalTourAndTravels.Application\MultinationalTourAndTravels.Application.csproj" />

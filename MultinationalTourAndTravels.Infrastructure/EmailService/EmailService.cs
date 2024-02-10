@@ -25,6 +25,7 @@ namespace MultinationalTourAndTravels.Infrastructure.EmailService
             MailjetClient mailjetClient = new MailjetClient(options.ApiKey, options.SecretKey);
             var email = new TransactionalEmailBuilder()
                 .WithFrom(new SendContact(options.FromEmail)).
+                WithSubject(model.Subject).
                 WithTo(new SendContact(model.To.FirstOrDefault())).
                 WithHtmlPart(model.Body).
                 Build();
