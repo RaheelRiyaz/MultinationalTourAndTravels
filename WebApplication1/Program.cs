@@ -18,6 +18,7 @@ builder.Services.AddPersistenceServices(builder.Configuration).
 var app = builder.Build();
 app.UseStaticFiles();
 
+
 app.UseCors(options =>
 {
     options.AllowAnyHeader();
@@ -25,6 +26,7 @@ app.UseCors(options =>
     options.AllowAnyOrigin();
 });
 // Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
