@@ -17,7 +17,7 @@ namespace MultinationalTourAndTravels.Persistence.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.SeedData();
+            modelBuilder.SeedData();
         }
         #region Tables
         public DbSet<User> Users { get; set; } = null!;
