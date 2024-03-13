@@ -1,0 +1,403 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\MultinationTourAndTravel-API\\WebApplication1\\MultinationalTourAndTravels.Api.csproj": {}
+  },
+  "projects": {
+    "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj",
+        "projectName": "MultinationalTourAndTravels.Application",
+        "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj": {
+                "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj",
+        "projectName": "MultinationalTourAndTravels.Domain",
+        "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Infrastructure\\MultinationalTourAndTravels.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Infrastructure\\MultinationalTourAndTravels.Infrastructure.csproj",
+        "projectName": "MultinationalTourAndTravels.Infrastructure",
+        "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Infrastructure\\MultinationalTourAndTravels.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj": {
+                "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.24.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.24.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Persistence\\MultinationalTourAndTravels.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Persistence\\MultinationalTourAndTravels.Persistence.csproj",
+        "projectName": "MultinationalTourAndTravels.Persistence",
+        "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Persistence\\MultinationalTourAndTravels.Persistence.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj": {
+                "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj"
+              },
+              "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj": {
+                "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.28, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\MultinationTourAndTravel-API\\WebApplication1\\MultinationalTourAndTravels.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\MultinationTourAndTravel-API\\WebApplication1\\MultinationalTourAndTravels.Api.csproj",
+        "projectName": "MultinationalTourAndTravels.Api",
+        "projectPath": "D:\\MultinationTourAndTravel-API\\WebApplication1\\MultinationalTourAndTravels.Api.csproj",
+        "packagesPath": "C:\\Users\\EliteBook\\.nuget\\packages\\",
+        "outputPath": "D:\\MultinationTourAndTravel-API\\WebApplication1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\EliteBook\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj": {
+                "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Application\\MultinationalTourAndTravels.Application.csproj"
+              },
+              "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Infrastructure\\MultinationalTourAndTravels.Infrastructure.csproj": {
+                "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Infrastructure\\MultinationalTourAndTravels.Infrastructure.csproj"
+              },
+              "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Persistence\\MultinationalTourAndTravels.Persistence.csproj": {
+                "projectPath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Persistence\\MultinationalTourAndTravels.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

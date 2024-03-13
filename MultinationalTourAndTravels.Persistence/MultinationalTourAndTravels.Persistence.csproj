@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -23,10 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MultinationalTourAndTravels.Application\MultinationalTourAndTravels.Application.csproj" />
     <ProjectReference Include="..\MultinationalTourAndTravels.Domain\MultinationalTourAndTravels.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Store\" />
   </ItemGroup>
 
 </Project>

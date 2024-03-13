@@ -17,7 +17,7 @@ namespace MultinationalTourAndTravels.Application.Services
         private readonly IAppFileRepository appFileRepository;
         private readonly IMapper mapper;
 
-        public GalleryService(IFileService fileService, IAppFileRepository appFileRepository, IMapper mapper)
+        public GalleryService(IFileService fileService,IAppFileRepository appFileRepository,IMapper mapper)
         {
             this.fileService = fileService;
             this.appFileRepository = appFileRepository;
@@ -29,7 +29,7 @@ namespace MultinationalTourAndTravels.Application.Services
         {
             var filePaths = await fileService.AddFiles(model.Files, AppModule.Gallery);
 
-            if (!filePaths.Any())
+            if (!filePaths.Any()) 
                 return APIResponse<IEnumerable<GallerImage>>.ErrorResponse();
 
             return APIResponse<IEnumerable<GallerImage>>.SuccessResponse(message: "Images Uploaded Successfully", result: mapper.Map<IEnumerable<GallerImage>>(filePaths));
@@ -44,8 +44,8 @@ namespace MultinationalTourAndTravels.Application.Services
                 return APIResponse<GallerImage>.ErrorResponse();
 
             var res = await appFileRepository.DeleteAsync(file);
-            if (res > 0)
-                return APIResponse<GallerImage>.SuccessResponse(result: mapper.Map<GallerImage>(file));
+            if(res > 0)
+            return APIResponse<GallerImage>.SuccessResponse(result: mapper.Map<GallerImage>(file));
 
             return APIResponse<GallerImage>.ErrorResponse();
         }
@@ -68,14 +68,6 @@ namespace MultinationalTourAndTravels.Application.Services
         public async Task<APIResponse<IEnumerable<GallerImage>>> Gallery()
         {
             var galleryImages = await appFileRepository.FilterAsync(_ => _.AppModule == AppModule.Gallery);
-
-            return APIResponse<IEnumerable<GallerImage>>.SuccessResponse(result: mapper.Map<IEnumerable<GallerImage>>(galleryImages));
-        }
-
-        public async Task<APIResponse<IEnumerable<GallerImage>>> GalleryPageWize(int pageNo, int pageSize)
-        {
-            var galleryImages = (await appFileRepository.FilterAsync(_ => _.AppModule == AppModule.Gallery))
-                .Skip((pageNo - 1) * pageSize).Take(pageSize);
 
             return APIResponse<IEnumerable<GallerImage>>.SuccessResponse(result: mapper.Map<IEnumerable<GallerImage>>(galleryImages));
         }

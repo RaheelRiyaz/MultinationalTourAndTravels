@@ -36,17 +36,5 @@ namespace MultinationalTourAndTravels.Persistence.Repository
 
             return await dbContext.QueryAsync<PackageFile>(query, new { packageId });
         }
-
-        public async Task<PackageResponse?> PackageById(Guid id)
-        {
-            var query = $@"SELECT Id,
-                                [Name],[Description],
-                                [Days],Nights,StartingPrice,
-                                Longitude,Latitude
-                                FROM Packages
-                                WHERE Id = @id ";
-
-            return await dbContext.FirstOrdefaultAsync<PackageResponse?>(query, new { id });
-        }
     }
 }

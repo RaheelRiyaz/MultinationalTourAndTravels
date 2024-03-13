@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MultinationalTourAndTravels.Domain.Entities
@@ -20,7 +19,6 @@ namespace MultinationalTourAndTravels.Domain.Entities
 
 
         #region Navigational Properties
-        [JsonIgnore]
         [ForeignKey(nameof(PackageId))]
         public Package Package { get; set; } = null!;
         #endregion Navigational Properties

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -9,7 +8,6 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class GalleryController : ControllerBase
     {
         private readonly IGalleryService galleryService;
@@ -21,12 +19,11 @@ namespace MultinationalTourAndTravels.Api.Controllers
 
 
         [HttpPost]
-        public async Task<APIResponse<IEnumerable<GallerImage>>> AddImages([FromForm]GalleryRequest model) =>
+        public async Task<APIResponse<IEnumerable<GallerImage>>> AddImages(GalleryRequest model) =>
             await galleryService.AddImages(model);
 
 
 
-        [AllowAnonymous]
         [HttpGet]
         public async Task<APIResponse<IEnumerable<GallerImage>>> Gallery() =>
             await galleryService.Gallery();
@@ -41,11 +38,5 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpPost("delete-images")]
         public async Task<APIResponse<int>> Gallery(DeleletGalleryRequest model) =>
             await galleryService.DeleteGalleryImages(model.Ids);
-
-
-        [AllowAnonymous]
-        [HttpGet("pagewize/{pageNo:int}/{pageSize:int}")]
-        public async Task<APIResponse<IEnumerable<GallerImage>>> GalleryPageWize(int pageNo, int pageSize) =>
-            await galleryService.GalleryPageWize(pageNo, pageSize);
     }
 }

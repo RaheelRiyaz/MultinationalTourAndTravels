@@ -46,15 +46,7 @@ namespace MultinationalTourAndTravels.Application.Services
             return APIResponse<ItineraryResponse>.ErrorResponse();
         }
 
-        public async Task<APIResponse<int>> DeleteItinerary(Guid id)
-        {
-            var res = await itineraryRepository.DeleteAsync(id);
 
-            if (res > 0)
-                return APIResponse<int>.SuccessResponse("Itinerary Removed", result: res);
-
-            return APIResponse<int>.ErrorResponse();
-        }
 
         public async Task<APIResponse<IEnumerable<ItineraryResponse>>> PackageItineraries(Guid packageId)
         {

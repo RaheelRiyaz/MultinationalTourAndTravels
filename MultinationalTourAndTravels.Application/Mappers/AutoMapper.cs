@@ -54,34 +54,4 @@ namespace MultinationalTourAndTravels.Application.Mappers
             CreateMap<AppFile, GallerImage>();
         }
     }
-
-
-
-    public class PackageCostingMapper : Profile
-    {
-        public PackageCostingMapper()
-        {
-            CreateMap<PackageCostingRequest, PackageCosting>();
-            CreateMap<Package, AllPackageResponse>();
-        }
-    }
-
-
-    public class BookingMapper : Profile
-    {
-        public BookingMapper()
-        {
-            CreateMap<BookingRequest, Booking>();
-            CreateMap<Booking,BookingResponse>();
-        }
-    }
-
-
-    public class HotelMapper : Profile
-    {
-        public HotelMapper()
-        {
-            CreateMap<HotelResponse, Hotel>();
-        }
-    }
 }

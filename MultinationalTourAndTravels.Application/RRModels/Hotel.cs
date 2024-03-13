@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using MultinationalTourAndTravels.Application.Validators;
 using MultinationalTourAndTravels.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -33,7 +32,6 @@ namespace MultinationalTourAndTravels.Application.RRModels
         public string Description { get; set; } = string.Empty;
 
         [Required]
-        // [IsFileImage("image/jpeg", "image/png", ErrorMessage = "Please provide a jpeg or png file")]
         public IFormFile File { get; set; } = null!;
     }
 

@@ -13,7 +13,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IRepository
     {
         Task<IEnumerable<HotelResponse>> ViewHotels();
         Task<IEnumerable<HotelResponse>> ViewHotelsByPackage(PackageType packageType);
-
         Task<IEnumerable<DestinationHotel>> HotelsByDestinationAndPackageType(Guid destinationId, int packageType);
     }
 }

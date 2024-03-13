@@ -49,160 +49,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                     b.ToTable("AppFiles");
                 });
 
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Booking", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Contact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsVerified")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NoOfAdults")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NoOfChildrens")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("PackageId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("TravelDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PackageId");
-
-                    b.ToTable("Bookings");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Cab", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte>("CabType")
-                        .HasColumnType("tinyint");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cabs");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.ChatAnswer", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Answer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("QuestionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ChatAnswers");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.ChatQuestion", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Question")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Show")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ChatQuestions");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Contact", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contacts");
-                });
-
             modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.DestinationDetails", b =>
                 {
                     b.Property<Guid>("Id")
@@ -353,51 +199,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                     b.ToTable("Itineraries");
                 });
 
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.LinkTree", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Facebbook")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Google")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Instagram")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Twitter")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Whatsapp")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Youtube")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LinkTrees");
-                });
-
             modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Package", b =>
                 {
                     b.Property<Guid>("Id")
@@ -439,37 +240,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Packages");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.PackageCosting", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<byte>("PackageCostingType")
-                        .HasColumnType("tinyint");
-
-                    b.Property<Guid>("PackageId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<byte>("PackageType")
-                        .HasColumnType("tinyint");
-
-                    b.Property<double>("Rate")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PackageId");
-
-                    b.ToTable("PackageCostings");
                 });
 
             modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.PackageDestination", b =>
@@ -560,17 +330,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Booking", b =>
-                {
-                    b.HasOne("MultinationalTourAndTravels.Domain.Entities.Package", "Package")
-                        .WithMany()
-                        .HasForeignKey("PackageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Package");
-                });
-
             modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.DestinationDetails", b =>
                 {
                     b.HasOne("MultinationalTourAndTravels.Domain.Entities.PackageDestination", "PackageDestination")
@@ -613,17 +372,6 @@ namespace MultinationalTourAndTravels.Persistence.Migrations
                 });
 
             modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.Itinerary", b =>
-                {
-                    b.HasOne("MultinationalTourAndTravels.Domain.Entities.Package", "Package")
-                        .WithMany()
-                        .HasForeignKey("PackageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Package");
-                });
-
-            modelBuilder.Entity("MultinationalTourAndTravels.Domain.Entities.PackageCosting", b =>
                 {
                     b.HasOne("MultinationalTourAndTravels.Domain.Entities.Package", "Package")
                         .WithMany()

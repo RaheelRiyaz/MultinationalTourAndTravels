@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "3zczgRJsg/9ngRH2vIbIteN7kwPCr3qeXUy+OyJHv6dE50zmLem2MFYgBQKh1gYwj0Q4rP/k37Q3UoUIB5MIUA==",
+  "success": true,
+  "projectFilePath": "D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\MultinationalTourAndTravels.Domain.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\MultinationTourAndTravel-API\\MultinationalTourAndTravels.Domain\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
+}

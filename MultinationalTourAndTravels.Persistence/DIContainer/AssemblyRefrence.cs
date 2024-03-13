@@ -31,13 +31,6 @@ namespace MultinationalTourAndTravels.Persistence.DIContainer
             services.AddScoped<IPackageDestination, PackageDestinationRepository>();
             services.AddScoped<IDestinationDetailsRepository, DestinationDetailsRepository>();
             services.AddScoped<IHotelsRepository, HotelsRepository>();
-            services.AddScoped<IChatQuestionRepository, ChatBotQuestionRepository>();
-            services.AddScoped<IChatAnswerRepository, ChatBotAnswerRepository>();
-            services.AddScoped<IPackageCostingRepository, PackageCostingRepository>();
-            services.AddScoped<ICabRepository, CabRepository>();
-            services.AddScoped<IBookingRepository, BookingRepository>();
-            services.AddScoped<ILinkTreeRepository, LinkTreeRepository>();
-            services.AddScoped<IContactsRepository, ContactsRepository>();
             return services;
         }
     }

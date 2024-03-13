@@ -11,7 +11,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IRepository
     public interface IPackageRepository : IBaseRepository<Package>
     {
         Task<IEnumerable<PackageResponse>> GetHomePackages();
-        Task<PackageResponse?> PackageById(Guid id);
         Task<IEnumerable<PackageFile>> GetPackagesFiles(Guid packageId);
     }
 }

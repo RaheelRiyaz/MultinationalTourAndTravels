@@ -1,16 +1,13 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
 using MultinationalTourAndTravels.Application.RRModels;
-using MultinationalTourAndTravels.Domain.Entities;
 
 namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class PackageDestinationController : ControllerBase
     {
         private readonly IPackageDestinationService packageDestinationService;
@@ -31,17 +28,5 @@ namespace MultinationalTourAndTravels.Api.Controllers
         [HttpPost("details")]
         public async Task<APIResponse<DestinationDetailRequest>> AddDestinationDetails(DestinationDetailRequest model) =>
            await packageDestinationService.AddDestinationDetails(model);
-
-
-
-        [AllowAnonymous]
-        [HttpGet("packageId/{id:guid}")]
-        public async Task<APIResponse<IEnumerable<PackageDestination>>> PackageDestinations(Guid id) =>
-            await packageDestinationService.PackageDestinations(id);
-
-
-        [HttpDelete("{id:guid}")]
-        public async Task<APIResponse<int>> DeletePackageDestination(Guid id) =>
-            await packageDestinationService.DeletePackageDestination(id);
     }
 }

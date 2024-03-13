@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultinationalTourAndTravels.Application;
 using MultinationalTourAndTravels.Application.Abstractions.IServices;
@@ -9,7 +8,6 @@ namespace MultinationalTourAndTravels.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ItineraryController : ControllerBase
     {
         private readonly IItineraryService itineraryService;
@@ -26,15 +24,8 @@ namespace MultinationalTourAndTravels.Api.Controllers
             await itineraryService.AddItinerary(model);
 
 
-
-        [AllowAnonymous]
         [HttpGet("package/{packageId:guid}")]
         public async Task<APIResponse<IEnumerable<ItineraryResponse>>> PackageItineraries(Guid packageId) =>
             await itineraryService.PackageItineraries(packageId);
-
-
-        [HttpDelete("{id:guid}")]
-        public async Task<APIResponse<int>> DeleteItinerary(Guid id) =>
-            await itineraryService.DeleteItinerary(id);
     }
 }

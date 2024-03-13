@@ -13,7 +13,6 @@ namespace MultinationalTourAndTravels.Application.Abstractions.IServices
         Task<APIResponse<int>> AddHotel(HotelRequest hotel);
 
         Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotels();
-        Task<APIResponse<int>> DeleteHotel(Guid id);
         Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotelsPageWize(int pageNo,int total);
         Task<APIResponse<IEnumerable<HotelResponse>>> ViewHotelsByPackageType(PackageType packageType);
     }

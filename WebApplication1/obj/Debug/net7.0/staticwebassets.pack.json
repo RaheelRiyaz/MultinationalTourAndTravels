@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\02e6dd87-0352-4ae5-97ce-7be73954b729gulmarag.jpg",
+      "PackagePath": "staticwebassets\\Files\\02e6dd87-0352-4ae5-97ce-7be73954b729gulmarag.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\0fa35947-a5d4-4ce9-af98-ab807d95fc033starhotel.jpg",
+      "PackagePath": "staticwebassets\\Files\\0fa35947-a5d4-4ce9-af98-ab807d95fc033starhotel.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\467dc85b-53f5-478d-ba64-6ddf0aac3b7d5starhotel.jpg",
+      "PackagePath": "staticwebassets\\Files\\467dc85b-53f5-478d-ba64-6ddf0aac3b7d5starhotel.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\6d9022f0-459d-4c38-a693-36337c4d8321gulmarag.jpg",
+      "PackagePath": "staticwebassets\\Files\\6d9022f0-459d-4c38-a693-36337c4d8321gulmarag.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\7763f57d-0368-4a92-a71e-cb92a3df4dd53starhotel.jpg",
+      "PackagePath": "staticwebassets\\Files\\7763f57d-0368-4a92-a71e-cb92a3df4dd53starhotel.jpg"
+    },
+    {
+<<<<<<< HEAD
+      "Id": "D:\\localRepository\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\7b83f769-e387-40cb-acb1-457f67b429915starhotel.jpg",
+      "PackagePath": "staticwebassets\\Files\\7b83f769-e387-40cb-acb1-457f67b429915starhotel.jpg"
+    },
+    {
+      "Id": "D:\\localRepository\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\8400dd06-4bee-40a8-8dae-39e0ca55b9553starhotel.jpg",
+      "PackagePath": "staticwebassets\\Files\\8400dd06-4bee-40a8-8dae-39e0ca55b9553starhotel.jpg"
+    },
+    {
+      "Id": "D:\\localRepository\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\96035ca4-f104-4f9b-b2ab-7217edd9b193gulmarag.jpg",
+=======
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\96035ca4-f104-4f9b-b2ab-7217edd9b193gulmarag.jpg",
+>>>>>>> origin/main
+      "PackagePath": "staticwebassets\\Files\\96035ca4-f104-4f9b-b2ab-7217edd9b193gulmarag.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\bd2475fc-b3e8-4380-bc5d-5388f08efb98SONAMARG.jpg",
+      "PackagePath": "staticwebassets\\Files\\bd2475fc-b3e8-4380-bc5d-5388f08efb98SONAMARG.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\c5581239-f30c-4a68-ab44-2902f171934cgulmarag.jpg",
+      "PackagePath": "staticwebassets\\Files\\c5581239-f30c-4a68-ab44-2902f171934cgulmarag.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\def7c9b7-2216-4f94-b66e-89270745cb10SONAMARG.jpg",
+      "PackagePath": "staticwebassets\\Files\\def7c9b7-2216-4f94-b66e-89270745cb10SONAMARG.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\e49d591b-ce06-4a96-96f1-3ec381cb9357SONAMARG.jpg",
+      "PackagePath": "staticwebassets\\Files\\e49d591b-ce06-4a96-96f1-3ec381cb9357SONAMARG.jpg"
+    },
+    {
+      "Id": "D:\\MultinationTourAndTravel-API\\WebApplication1\\wwwroot\\Files\\f249204f-b1f4-42b7-a627-7e416e7c72dfgulmarag.jpg",
+      "PackagePath": "staticwebassets\\Files\\f249204f-b1f4-42b7-a627-7e416e7c72dfgulmarag.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.MultinationalTourAndTravels.Api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.MultinationalTourAndTravels.Api.props",
+      "PackagePath": "build\\MultinationalTourAndTravels.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.MultinationalTourAndTravels.Api.props",
+      "PackagePath": "buildMultiTargeting\\MultinationalTourAndTravels.Api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.MultinationalTourAndTravels.Api.props",
+      "PackagePath": "buildTransitive\\MultinationalTourAndTravels.Api.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -13,20 +13,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistenceServices(builder.Configuration).
     AddApiServices(builder.Configuration).
-    AddInfrastructureServices(builder.Configuration).
+    AddInfrastructureServices().
     AddApplicationServices(builder.Environment.WebRootPath);
 var app = builder.Build();
 app.UseStaticFiles();
-
-
-app.UseCors(options =>
-{
-    options.AllowAnyHeader();
-    options.AllowAnyMethod();
-    options.AllowAnyOrigin();
-});
 // Configure the HTTP request pipeline.
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
